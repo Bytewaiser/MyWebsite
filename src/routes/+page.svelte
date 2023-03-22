@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-    <title>Hasan Hüseyin Yurdagül - Home</title>
+    <title>Home - Hasan Hüseyin Yurdagül</title>
     <meta
         name="description"
         content="Hasan Hüseyin Yurdagül Personal Website"
