@@ -11,14 +11,14 @@
         display: grid;
         align-content: center;
         gap: 2rem;
-        padding: 2rem;
+        padding: 1rem;
         font-family: "Poppins", sans-serif;
     }
 
     ul {
         --bgColor: rgba(60, 61, 63, 0.7);
         --col-gap: 2rem;
-        --row-gap: 2rem;
+        --row-gap: 2.5rem;
         --line-w: 0.25rem;
         display: grid;
         grid-template-columns: var(--line-w) 1fr;
@@ -33,7 +33,7 @@
     ul::before {
         content: "";
         grid-column: 1;
-        grid-row: 1 / span 20;
+        grid-row: 1 / span 50;
         background: rgb(32, 32, 32);
         border-radius: calc(var(--line-w) / 2);
     }
