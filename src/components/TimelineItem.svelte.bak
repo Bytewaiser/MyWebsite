@@ -1,0 +1,78 @@
+<script lang="ts">
+    export let date: string;
+    export let title: string;
+    export let position: string;
+    export let href: string;
+
+    let open: boolean = false;
+
+    function collapse() {
+        open = !open;
+    }
+</script>
+
+<li>
+    <time on:click={collapse} on:keypress={collapse}>{date}</time>
+    <a {href} target="_blank">{title}</a>
+    <span on:click={collapse} on:keypress={collapse}> - {position}</span>
+    <i
+        on:click={collapse}
+        on:keypress={collapse}
+        class="arrow {open ? 'down' : 'right'}"
+    />
+</li>
+<div class="content {open ? 'open' : ''}">
+    <slot />
+</div>
+
+<style>
+    .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        padding: 0.1rem;
+    }
+    .content.open {
+        max-height: max-content; /* adjust as needed */
+        transition: max-height 0.2s ease-out;
+        margin-bottom: 1rem;
+    }
+    .arrow {
+        border: solid var(--color-theme-1);
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transition: transform 0.3s linear;
+    }
+    .arrow.right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    .arrow.down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    time {
+        cursor: pointer;
+        min-width: 75px;
+        color: rgb(107 114 128);
+    }
+
+    a {
+        display: inline-block;
+    }
+
+    span,
+    i {
+        cursor: pointer;
+    }
+</style>
